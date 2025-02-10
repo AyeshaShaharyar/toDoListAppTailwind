@@ -79,11 +79,16 @@ function renderTasks() {
       itemDiv.className =
         "p-4 bg-white shadow rounded space-x-4 flex justify-between items-center";
       itemDiv.innerHTML = `
-      <button onclick="toggleExpand(${index})" class="text-gray-900 mx-2">➜
-</button>
+      ${
+        item.description
+          ? `<button onclick="toggleExpand(${index})" class="text-gray-900 mx-2">➜</button>`
+          : ""
+      }
       <h3 class="${item.completed ? "line-through text-gray-500" : ""}">${
         item.text
-      }</h3><p id="desc" class="text-gray-600 hidden">${item.description}</p>
+      }</h3><p id="desc-${index}" class="text-gray-600 hidden">${
+        item.description
+      }</p>
       <div>
         <button onclick="toggleComplete(${index})" class="text-green-500 mx-2">✔</button>
         <button onclick="deleteTask(${index})" class="text-red-500">✖</button>
@@ -108,5 +113,5 @@ function deleteTask(index) {
 }
 
 function toggleExpand(index) {
-  document.getElementById("desc").classList.toggle("hidden");
+  document.getElementById(`desc-${index}`).classList.toggle("hidden");
 }
