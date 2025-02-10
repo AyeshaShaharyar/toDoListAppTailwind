@@ -59,13 +59,20 @@ function renderTasks() {
     tasks.forEach((item, index) => {
       const itemDiv = document.createElement("div");
       itemDiv.className = "p-4 shadow rounded text-center bg-white";
-      itemDiv.innerHTML = `<div>
-        <button onclick="toggleComplete(${index})" class="text-green-500 mx-2">✔</button>
-        <button onclick="deleteTask(${index})" class="text-red-500">✖</button>
+      itemDiv.innerHTML = `<div class="flex flex-row justify-between">
+       ${
+         item.description
+           ? `<button id="toggleExpand-${index}" onclick="toggleExpand(${index})" class="text-gray-900 mx-2">➜</button>`
+           : ""
+       }
+      <div>   <button onclick="toggleComplete(${index})" class="text-green-500 mx-2">✔</button>
+      <button onclick="deleteTask(${index})" class="text-red-500">✖</button></div>
       </div>
-      <h3 class="${item.completed ? "line-through text-gray-500" : ""}">${
+      <h3 class="mt-4 ${item.completed ? "line-through text-gray-500" : ""}">${
         item.text
-      }</h3><p class="text-gray-600">${item.description}</p>
+      }</h3><p id="desc-${index}" class="text-gray-600 hidden">${
+        item.description
+      }</p>
       `;
       tasksContainer.appendChild(itemDiv);
     });
@@ -77,7 +84,7 @@ function renderTasks() {
     tasks.forEach((item, index) => {
       const itemDiv = document.createElement("div");
       itemDiv.className =
-        "p-4 bg-white shadow rounded space-x-4 flex justify-between items-center";
+        "p-4 bg-white shadow rounded space-x-4 flex justify-between";
       itemDiv.innerHTML = `
       ${
         item.description
@@ -97,7 +104,7 @@ function renderTasks() {
     });
   }
 }
-
+//toggle list/tile view
 function toggleView() {
   isGridView = !isGridView;
   renderTasks();
@@ -107,11 +114,13 @@ function toggleComplete(index) {
   tasks[index].completed = !tasks[index].completed;
   renderTasks();
 }
+//delete task
 function deleteTask(index) {
   tasks.splice(index, 1);
   renderTasks();
 }
-
+//expand sections
 function toggleExpand(index) {
   document.getElementById(`desc-${index}`).classList.toggle("hidden");
+  document.getElementById(`toggleExpand-${index}`).classList.toggle("rotate-90");
 }
