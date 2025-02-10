@@ -21,3 +21,6 @@ function login() {
     message.innerText = "Invalid username or password.";
   }
 }
+
+
+//to-do list and tile/list view
