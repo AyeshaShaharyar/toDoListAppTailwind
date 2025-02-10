@@ -59,13 +59,14 @@ function renderTasks() {
     tasks.forEach((item, index) => {
       const itemDiv = document.createElement("div");
       itemDiv.className = "p-4 shadow rounded text-center bg-white";
-      itemDiv.innerHTML = `<div class="flex flex-row justify-between">
+      itemDiv.innerHTML = `<div class="flex flex-row justify-between items-center">
        ${
          item.description
            ? `<button id="toggleExpand-${index}" onclick="toggleExpand(${index})" class="text-gray-900 mx-2">➜</button>`
            : ""
        }
-      <div>   <button onclick="toggleComplete(${index})" class="text-green-500 mx-2">✔</button>
+      <div class="ml-auto">   
+      <button onclick="toggleComplete(${index})" class="text-green-500 mx-2">✔</button>
       <button onclick="deleteTask(${index})" class="text-red-500">✖</button></div>
       </div>
       <h3 class="mt-4 ${item.completed ? "line-through text-gray-500" : ""}">${
@@ -122,5 +123,7 @@ function deleteTask(index) {
 //expand sections
 function toggleExpand(index) {
   document.getElementById(`desc-${index}`).classList.toggle("hidden");
-  document.getElementById(`toggleExpand-${index}`).classList.toggle("rotate-90");
+  document
+    .getElementById(`toggleExpand-${index}`)
+    .classList.toggle("rotate-90");
 }
