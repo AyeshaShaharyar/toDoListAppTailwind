@@ -8,6 +8,46 @@
   </head>
   <body class="flex bg-gray-100 h-screen">
     <!-- Sidebar -->
+    <div
+      id="sidebar"
+      class="w-64 bg-gray-900 text-white h-screen p-4 flex flex-col"
+    >
+      <div>
+        <button
+          onclick="toggleSidebar()"
+          class="mb-4 p-2 bg-gray-800 rounded text-gray-300 hover:bg-gray-700"
+        >
+          ☰
+        </button>
+        <!-- Nav bar -->
+        <nav class="flex flex-col gap-4">
+          <a
+            href="home.html"
+            class="flex items-center gap-4 p-3 hover:bg-gray-700"
+          >
+            <span class="text-xl">🏠</span>
+            <span class="text-lg font-semibold items-center">Home</span>
+          </a>
+          <a href="" class="flex items-center gap-4 p-3 hover:bg-gray-700">
+            <span class="text-xl">📄</span>
+            <span class="text-lg font-semibold items-center">About Us</span>
+          </a>
+          <a href="" class="flex items-center gap-4 p-3 hover:bg-gray-700">
+            <span class="text-xl">⚙️</span>
+            <span class="text-lg font-semibold items-center">Settings</span>
+          </a>
+        </nav>
+      </div>
+      <!-- Logout Button (Sticks to Bottom) -->
+      <button
+        onclick="logout()"
+        class="flex gap-4 p-3 mt-auto bg-gray-800 rounded hover:bg-red-600 transition"
+      >
+        <span class="text-xl">🚪</span>
+        <span class="text-lg font-semibold items-center">Logout</span>
+      </button>
+    </div>
+
     <!-- To-Do List-->
     <div class="flex-1 p-6">
       <h1 class="text-2xl font-bold mb-4">To-Do List</h1>
