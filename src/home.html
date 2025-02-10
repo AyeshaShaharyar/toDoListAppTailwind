@@ -6,9 +6,75 @@
     <title>Home</title>
     <link rel="stylesheet" href="output.css" />
   </head>
-  <body class="bg-gray-100 h-screen flex justify-center items-center">
-    <div class="bg-white shadow-lg p-16 rounded-lg text-center">
-      <h1 class="text-5xl font-bold text-red-600">Welcome 🎉</h1>
+  <body class="bg-gray-100 h-screen flex">
+    <div
+      id="sidebar"
+      class="w-64 min-w-[64px] bg-gray-900 text-white h-screen p-4 flex flex-col"
+    >
+      <div>
+        <div class="flex justify-between items-center gap-4 mt-2">
+          <span
+            ><a
+              class="sidebar-text text-2xl font-extrabold text-blue-300 italic underline decoration-wavy p-4"
+              href="#"
+              >App ToDo</a
+            ></span
+          >
+          <span
+            ><button
+              onclick="toggleSidebar()"
+              class="text-gray-300 hover:bg-gray-700"
+            >
+              ☰
+            </button></span
+          >
+        </div>
+
+        <!-- Nav bar -->
+        <nav class="flex flex-col gap-1 mt-6">
+          <a
+            href="home.html"
+            class="flex items-center gap-4 p-3 rounded hover:bg-gray-700"
+          >
+            <span class="text-xl">🏠</span>
+            <span class="sidebar-text text-lg font-semibold items-center"
+              >Home</span
+            >
+          </a>
+          <a
+            href="dashboard.html"
+            class="flex items-center gap-4 p-3 rounded hover:bg-gray-700"
+          >
+            <span class="text-xl">📄</span>
+            <span class="sidebar-text text-lg font-semibold items-center"
+              >To Do List</span
+            >
+          </a>
+          <a
+            href="#"
+            class="flex items-center gap-4 p-3 rounded hover:bg-gray-700"
+          >
+            <span class="text-xl">⚙️</span>
+            <span class="sidebar-text text-lg font-semibold items-center"
+              >Settings</span
+            >
+          </a>
+        </nav>
+      </div>
+      <!-- Logout Button (Sticks to Bottom) -->
+      <button
+        onclick="logout()"
+        class="flex items-center gap-4 p-3 mt-auto bg-gray-800 rounded hover:bg-red-600 transition"
+      >
+        <span class="text-xl">↪</span>
+        <span class="sidebar-text text-lg font-semibold items-center"
+          >Logout</span
+        >
+      </button>
     </div>
+    <div class="flex text-center justify-center items-center w-full">
+      <div class="font-bold text-red-700 text-3xl"><h1>Welcome 🎉!</h1></div>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>
