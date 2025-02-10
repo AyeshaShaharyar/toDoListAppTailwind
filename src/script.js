@@ -87,6 +87,7 @@ function renderTasks() {
       itemDiv.className =
         "p-4 bg-white shadow rounded space-x-4 flex justify-between";
       itemDiv.innerHTML = `
+      <div class="flex flex-row gap-4">
       ${
         item.description
           ? `<button onclick="toggleExpand(${index})" class="text-gray-900 mx-2">➜</button>`
@@ -97,6 +98,7 @@ function renderTasks() {
       }</h3><p id="desc-${index}" class="text-gray-600 hidden">${
         item.description
       }</p>
+      </div>
       <div>
         <button onclick="toggleComplete(${index})" class="text-green-500 mx-2">✔</button>
         <button onclick="deleteTask(${index})" class="text-red-500">✖</button>
