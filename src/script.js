@@ -56,10 +56,17 @@ function renderTasks() {
     tasksContainer.className = "grid grid-cols-2 gap-4";
     toggleBtn.innerText = "Switch to List View";
 
-    tasks.forEach((item) => {
+    tasks.forEach((item, index) => {
       const itemDiv = document.createElement("div");
       itemDiv.className = "p-4 shadow rounded text-center bg-white";
-      itemDiv.innerHTML = `<h3 class="font-semibold">${item.text}</h3><p class="text-gray-600">${item.description}</p>`;
+      itemDiv.innerHTML = `<div>
+        <button onclick="toggleComplete(${index})" class="text-green-500 mx-2">✔</button>
+        <button onclick="deleteTask(${index})" class="text-red-500">✖</button>
+      </div>
+      <h3 class="${item.completed ? "line-through text-gray-500" : ""}">${
+        item.text
+      }</h3><p class="text-gray-600">${item.description}</p>
+      `;
       tasksContainer.appendChild(itemDiv);
     });
   } else {
@@ -67,11 +74,17 @@ function renderTasks() {
     tasksContainer.className = "space-y-2";
     toggleBtn.innerText = "Switch to Tile View";
 
-    tasks.forEach((item) => {
+    tasks.forEach((item, index) => {
       const itemDiv = document.createElement("div");
       itemDiv.className =
         "p-4 bg-white shadow rounded space-x-4 flex items-center";
-      itemDiv.innerHTML = `<h3 class="font-semibold">${item.text}</h3><p class="text-gray-600">${item.description}</p>`;
+      itemDiv.innerHTML = `<h3 class="${
+        item.completed ? "line-through text-gray-500" : ""
+      }">${item.text}</h3><p class="text-gray-600">${item.description}</p>
+      <div>
+        <button onclick="toggleComplete(${index})" class="text-green-500 mx-2">✔</button>
+        <button onclick="deleteTask(${index})" class="text-red-500">✖</button>
+      </div>`;
       tasksContainer.appendChild(itemDiv);
     });
   }
@@ -81,5 +94,12 @@ function toggleView() {
   isGridView = !isGridView;
   renderTasks();
 }
-
-
+// Update (Toggle Complete)
+function toggleComplete(index) {
+  tasks[index].completed = !tasks[index].completed;
+  renderTasks();
+}
+function deleteTask(index) {
+  tasks.splice(index, 1);
+  renderTasks();
+}
