@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body>
+    <body class="flex justify-center items-center h-screen bg-slate-200">
+      <div class="bg-white rounded shadow-lg w-96 p-8">
+        <!-- login form -->
+        <div id="login-form">
+          <h1 class="text-blue font-bold text-2xl text-center mb-4">Login</h1>
+          <input
+            type="text"
+            id="username"
+            class="border rounded w-full p-2 mb-2"
+            placeholder="Username"
+          />
+          <input
+            type="password"
+            id="password"
+            class="border rounded w-full p-2 mb-2"
+            placeholder="Password"
+          />
+          <button
+            onclick="login()"
+            class="rounded bg-blue-500 p-2 my-3 w-full text-white hover:bg-blue-600"
+          >
+            Login
+          </button>
+          <p id="message" class="text-red-500 text-center text-sm"></p>
+        </div>
+      </div>
+      <script src="script.js"></script>
+  </body>
+</html>
