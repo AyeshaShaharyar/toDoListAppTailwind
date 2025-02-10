@@ -77,7 +77,7 @@ function renderTasks() {
     tasks.forEach((item, index) => {
       const itemDiv = document.createElement("div");
       itemDiv.className =
-        "p-4 bg-white shadow rounded space-x-4 flex items-center";
+        "p-4 bg-white shadow rounded space-x-4 flex justify-between items-center";
       itemDiv.innerHTML = `<h3 class="${
         item.completed ? "line-through text-gray-500" : ""
       }">${item.text}</h3><p class="text-gray-600">${item.description}</p>
