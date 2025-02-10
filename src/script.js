@@ -78,9 +78,12 @@ function renderTasks() {
       const itemDiv = document.createElement("div");
       itemDiv.className =
         "p-4 bg-white shadow rounded space-x-4 flex justify-between items-center";
-      itemDiv.innerHTML = `<h3 class="${
-        item.completed ? "line-through text-gray-500" : ""
-      }">${item.text}</h3><p class="text-gray-600">${item.description}</p>
+      itemDiv.innerHTML = `
+      <button onclick="toggleExpand(${index})" class="text-gray-900 mx-2">➜
+</button>
+      <h3 class="${item.completed ? "line-through text-gray-500" : ""}">${
+        item.text
+      }</h3><p id="desc" class="text-gray-600 hidden">${item.description}</p>
       <div>
         <button onclick="toggleComplete(${index})" class="text-green-500 mx-2">✔</button>
         <button onclick="deleteTask(${index})" class="text-red-500">✖</button>
@@ -102,4 +105,8 @@ function toggleComplete(index) {
 function deleteTask(index) {
   tasks.splice(index, 1);
   renderTasks();
+}
+
+function toggleExpand(index) {
+  document.getElementById("desc").classList.toggle("hidden");
 }
