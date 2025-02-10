@@ -10,13 +10,13 @@
     <!-- Sidebar -->
     <div
       id="sidebar"
-      class="w-64 bg-gray-900 text-white h-screen p-4 flex flex-col"
+      class="w-64 min-w-[64px] bg-gray-900 text-white h-screen p-4 flex flex-col"
     >
       <div>
         <div class="flex justify-between items-center gap-4 mt-2">
           <span
             ><a
-              class="text-2xl font-extrabold text-blue-300 italic underline decoration-wavy p-4"
+              class="sidebar-text text-2xl font-extrabold text-blue-300 italic underline decoration-wavy p-4"
               href=""
               >App ToDo</a
             ></span
@@ -24,7 +24,7 @@
           <span
             ><button
               onclick="toggleSidebar()"
-              class="text-gray-300 hover:bg-gray-700"
+              class=" text-gray-300 hover:bg-gray-700"
             >
               ☰
             </button></span
@@ -38,25 +38,33 @@
             class="flex items-center gap-4 p-3 hover:bg-gray-700"
           >
             <span class="text-xl">🏠</span>
-            <span class="text-lg font-semibold items-center">Home</span>
+            <span class="sidebar-text text-lg font-semibold items-center"
+              >Home</span
+            >
           </a>
           <a href="#" class="flex items-center gap-4 p-3 hover:bg-gray-700">
             <span class="text-xl">📄</span>
-            <span class="text-lg font-semibold items-center">About Us</span>
+            <span class="sidebar-text text-lg font-semibold items-center"
+              >About Us</span
+            >
           </a>
           <a href="#" class="flex items-center gap-4 p-3 hover:bg-gray-700">
             <span class="text-xl">⚙️</span>
-            <span class="text-lg font-semibold items-center">Settings</span>
+            <span class="sidebar-text text-lg font-semibold items-center"
+              >Settings</span
+            >
           </a>
         </nav>
       </div>
       <!-- Logout Button (Sticks to Bottom) -->
       <button
         onclick="logout()"
-        class="flex gap-4 p-3 mt-auto bg-gray-800 rounded hover:bg-red-600 transition"
+        class="flex items-center gap-4 p-3 mt-auto bg-gray-800 rounded hover:bg-red-600 transition"
       >
         <span class="text-xl">↪</span>
-        <span class="text-lg font-semibold items-center">Logout</span>
+        <span class="sidebar-text text-lg font-semibold items-center"
+          >Logout</span
+        >
       </button>
     </div>
 

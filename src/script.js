@@ -127,3 +127,11 @@ function toggleExpand(index) {
     .getElementById(`toggleExpand-${index}`)
     .classList.toggle("rotate-90");
 }
+//sidebar
+function toggleSidebar() {
+  const sidebar = document.getElementById("sidebar");
+  sidebar.classList.toggle("w-20");
+  document.querySelectorAll(".sidebar-text").forEach((el) => {
+    el.classList.toggle("hidden");
+  });
+}
