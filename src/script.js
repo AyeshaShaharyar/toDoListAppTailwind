@@ -22,5 +22,64 @@ function login() {
   }
 }
 
-
 //to-do list and tile/list view
+
+let tasks = [];
+let isGridView = false;
+
+const toggleBtn = document.getElementById("toggleBtn");
+const tasksContainer = document.getElementById("tasksContainer");
+const taskName = document.getElementById("taskInput");
+const taskDesc = document.getElementById("taskDesInput");
+
+//add task to the array
+function addTask() {
+  const taskInput = taskName.value.trim();
+  const taskDesInput = taskDesc.value.trim();
+  if (!taskInput) return;
+  //push to db
+  tasks.push({
+    id: Date.now,
+    text: taskInput,
+    description: taskDesInput,
+    completed: false,
+  });
+  taskName.value = "";
+  taskDesc.value = "";
+  renderTasks();
+}
+//render tasks in tile/list view
+function renderTasks() {
+  tasksContainer.innerHTML = "";
+  //tile view
+  if (isGridView) {
+    tasksContainer.className = "grid grid-cols-2 gap-4";
+    toggleBtn.innerText = "Switch to List View";
+
+    tasks.forEach((item) => {
+      const itemDiv = document.createElement("div");
+      itemDiv.className = "p-4 shadow rounded text-center bg-white";
+      itemDiv.innerHTML = `<h3 class="font-semibold">${item.text}</h3><p class="text-gray-600">${item.description}</p>`;
+      tasksContainer.appendChild(itemDiv);
+    });
+  } else {
+    //list view
+    tasksContainer.className = "space-y-2";
+    toggleBtn.innerText = "Switch to Tile View";
+
+    tasks.forEach((item) => {
+      const itemDiv = document.createElement("div");
+      itemDiv.className =
+        "p-4 bg-white shadow rounded space-x-4 flex items-center";
+      itemDiv.innerHTML = `<h3 class="font-semibold">${item.text}</h3><p class="text-gray-600">${item.description}</p>`;
+      tasksContainer.appendChild(itemDiv);
+    });
+  }
+}
+
+function toggleView() {
+  isGridView = !isGridView;
+  renderTasks();
+}
+
+
