@@ -13,14 +13,26 @@
       class="w-64 bg-gray-900 text-white h-screen p-4 flex flex-col"
     >
       <div>
-        <button
-          onclick="toggleSidebar()"
-          class="mb-4 p-2 bg-gray-800 rounded text-gray-300 hover:bg-gray-700"
-        >
-          ☰
-        </button>
+        <div class="flex justify-between items-center gap-4 mt-2">
+          <span
+            ><a
+              class="text-2xl font-extrabold text-blue-300 italic underline decoration-wavy p-4"
+              href=""
+              >App ToDo</a
+            ></span
+          >
+          <span
+            ><button
+              onclick="toggleSidebar()"
+              class="text-gray-300 hover:bg-gray-700"
+            >
+              ☰
+            </button></span
+          >
+        </div>
+
         <!-- Nav bar -->
-        <nav class="flex flex-col gap-4">
+        <nav class="flex flex-col gap-1 mt-6">
           <a
             href="home.html"
             class="flex items-center gap-4 p-3 hover:bg-gray-700"
@@ -28,11 +40,11 @@
             <span class="text-xl">🏠</span>
             <span class="text-lg font-semibold items-center">Home</span>
           </a>
-          <a href="" class="flex items-center gap-4 p-3 hover:bg-gray-700">
+          <a href="#" class="flex items-center gap-4 p-3 hover:bg-gray-700">
             <span class="text-xl">📄</span>
             <span class="text-lg font-semibold items-center">About Us</span>
           </a>
-          <a href="" class="flex items-center gap-4 p-3 hover:bg-gray-700">
+          <a href="#" class="flex items-center gap-4 p-3 hover:bg-gray-700">
             <span class="text-xl">⚙️</span>
             <span class="text-lg font-semibold items-center">Settings</span>
           </a>
@@ -43,7 +55,7 @@
         onclick="logout()"
         class="flex gap-4 p-3 mt-auto bg-gray-800 rounded hover:bg-red-600 transition"
       >
-        <span class="text-xl">🚪</span>
+        <span class="text-xl">↪</span>
         <span class="text-lg font-semibold items-center">Logout</span>
       </button>
     </div>
